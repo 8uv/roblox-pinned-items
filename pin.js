@@ -185,12 +185,10 @@ const waitForLoad = setInterval(() => {
                         el.setAttribute("hasEventListener", "true")
 
                         el.addEventListener("mouseenter", () => {
-                            console.log("hovered" + el)
                             hovered = el
                         })
                     
                         el.addEventListener("mouseleave", () => {
-                            console.log("unhovered" + el)
                             hovered = null
                         })
                     }
@@ -255,8 +253,6 @@ const waitForLoad = setInterval(() => {
                     })
 
                     if(exists == true && IDtoEl(pinned[pin]).querySelectorAll(".pin-div")[0] == undefined) { // create pin if it exists and doesnt already have one
-                        console.log(pinned[pin])
-                        console.log(IDtoEl(pinned[pin]))
                         createPin(IDtoEl(pinned[pin]))
                     }
                 }
@@ -274,7 +270,6 @@ const waitForLoad = setInterval(() => {
                         pinned.splice(pinned.indexOf(elToID(current)), 1)
                         pinnedNames.splice(pinnedNames.indexOf(elToName(current)), 1)
                         pinnedThumbs.splice(pinnedThumbs.indexOf(elToThumb(current)), 1)
-                        console.log("removed!")
                 
                         if(current.querySelectorAll("pin-div").length > 0) {
                             current.querySelectorAll(".pin-div")[0].remove()
@@ -301,7 +296,6 @@ const waitForLoad = setInterval(() => {
                         pinned.push(elToID(current))
                         pinnedNames.push(elToName(current))
                         pinnedThumbs.push(elToThumb(current))
-                        console.log("added!")
                 
                         createPin(current)
                 
